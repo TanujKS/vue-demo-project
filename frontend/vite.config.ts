@@ -7,6 +7,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 import Sitemap from 'vite-plugin-sitemap'
 
 // https://vite.dev/config/
+// ssgOptions is extended by vite-ssg (not in Vite's UserConfig)
 export default defineConfig({
   plugins: [
     vue(),
@@ -26,4 +27,4 @@ export default defineConfig({
     script: 'async',
     formatting: 'minify',
   },
-})
+} as import('vite').UserConfigExport)
