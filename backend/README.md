@@ -90,4 +90,4 @@ The frontend needs:
 - **Functions URL**: `VITE_FUNCTIONS_URL` — base URL of the deployed (or emulator) demo function, e.g. `https://us-central1-<project-id>.cloudfunctions.net/demo` or `http://127.0.0.1:5001/<project-id>/us-central1/demo`.
 - **Firebase config** (for Firestore): `VITE_FIREBASE_API_KEY`, `VITE_FIREBASE_PROJECT_ID`, etc., from the Firebase project settings (Project settings → General → Your apps).
 
-See the [frontend README](../frontend/README.md) for env and config details.
+See the [frontend README](../README.md) for env and config details.

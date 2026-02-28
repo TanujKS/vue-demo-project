@@ -44,17 +44,32 @@ I've built out a few open-source alternatives to common features that usually re
     <input type="text" id="name" name="name" required @blur="validateField" />
   </div>
 
-  <div class="form-group animate-on-scroll fade-in-delay" style="animation-delay: 0.1s">
+  <div
+    class="form-group animate-on-scroll fade-in-delay"
+    style="animation-delay: 0.1s"
+  >
     <label for="email">Email Address</label>
-    <input type="email" id="email" name="email" required @blur="validateField" />
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      @blur="validateField"
+    />
   </div>
 
-  <div class="form-group animate-on-scroll fade-in-delay" style="animation-delay: 0.2s">
+  <div
+    class="form-group animate-on-scroll fade-in-delay"
+    style="animation-delay: 0.2s"
+  >
     <label for="phone">Phone Number</label>
     <input type="tel" id="phone" name="phone" required @blur="validateField" />
   </div>
 
-  <div class="form-group animate-on-scroll fade-in-delay" style="animation-delay: 0.3s">
+  <div
+    class="form-group animate-on-scroll fade-in-delay"
+    style="animation-delay: 0.3s"
+  >
     <label for="street-address">Street Address</label>
     <input
       type="text"
@@ -66,7 +81,10 @@ I've built out a few open-source alternatives to common features that usually re
     />
   </div>
 
-  <div class="form-row animate-on-scroll fade-in-delay" style="animation-delay: 0.35s">
+  <div
+    class="form-row animate-on-scroll fade-in-delay"
+    style="animation-delay: 0.35s"
+  >
     <div class="form-group">
       <label for="city">City</label>
       <input
@@ -92,7 +110,10 @@ I've built out a few open-source alternatives to common features that usually re
     </div>
   </div>
 
-  <div class="form-group animate-on-scroll fade-in-delay" style="animation-delay: 0.4s">
+  <div
+    class="form-group animate-on-scroll fade-in-delay"
+    style="animation-delay: 0.4s"
+  >
     <label for="zip">Zip Code</label>
     <input
       type="text"
@@ -105,14 +126,31 @@ I've built out a few open-source alternatives to common features that usually re
     />
   </div>
 
-  <div class="form-group animate-on-scroll fade-in-delay" style="animation-delay: 0.45s">
+  <div
+    class="form-group animate-on-scroll fade-in-delay"
+    style="animation-delay: 0.45s"
+  >
     <label for="project">Tell Us About Your Project</label>
-    <textarea id="project" name="project" rows="4" required @blur="validateField"></textarea>
+    <textarea
+      id="project"
+      name="project"
+      rows="4"
+      required
+      @blur="validateField"
+    ></textarea>
   </div>
 
-  <div class="form-group animate-on-scroll fade-in-delay" style="animation-delay: 0.5s">
+  <div
+    class="form-group animate-on-scroll fade-in-delay"
+    style="animation-delay: 0.5s"
+  >
     <label for="preferred-time">Preferred Consultation Time</label>
-    <select id="preferred-time" name="preferred-time" required @blur="validateField">
+    <select
+      id="preferred-time"
+      name="preferred-time"
+      required
+      @blur="validateField"
+    >
       <option value="">Select a time...</option>
       <option value="morning">Morning (9 AM - 12 PM)</option>
       <option value="afternoon">Afternoon (12 PM - 3 PM)</option>
@@ -121,13 +159,22 @@ I've built out a few open-source alternatives to common features that usually re
   </div>
 
   <!-- Honeypot field - hidden from users -->
-  <input type="text" name="_hp" class="honeypot" tabindex="-1" autocomplete="off" />
+  <input
+    type="text"
+    name="_hp"
+    class="honeypot"
+    tabindex="-1"
+    autocomplete="off"
+  />
 
   <!-- Form identifier -->
   <input type="hidden" name="_form" value="consultation" />
 
   <!-- reCAPTCHA v2 widget -->
-  <div class="form-group animate-on-scroll fade-in-delay" style="animation-delay: 0.55s">
+  <div
+    class="form-group animate-on-scroll fade-in-delay"
+    style="animation-delay: 0.55s"
+  >
     <div id="recaptcha-container" class="recaptcha-container"></div>
   </div>
 
@@ -160,12 +207,12 @@ https://seosetups.com/blog/open-graph/
 We optimize for SSG using **vite-ssg**. Instruct Cursor to enhance the site with **vite-ssg** while using SSR on dynamic pages that require SSR (e.g. login pages).
 
 ```javascript
-import { fileURLToPath, URL } from 'node:url'
+import { fileURLToPath, URL } from "node:url";
 
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
-import Sitemap from 'vite-plugin-sitemap'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import vueDevTools from "vite-plugin-vue-devtools";
+import Sitemap from "vite-plugin-sitemap";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -174,94 +221,95 @@ export default defineConfig({
     vueDevTools(),
     // TODO: Make this dynamically load from productDetails.js
     Sitemap({
-      hostname: 'https://draperylady.net',
+      hostname: "https://draperylady.net",
       dynamicRoutes: [
-        '/product/drapery',
-        '/product/shades',
-        '/product/blinds',
-        '/product/shutters',
-        '/product/valances',
-        '/product/accessories',
+        "/product/drapery",
+        "/product/shades",
+        "/product/blinds",
+        "/product/shutters",
+        "/product/valances",
+        "/product/accessories",
       ],
     }),
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-      '@assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+      "@assets": fileURLToPath(new URL("./src/assets", import.meta.url)),
     },
   },
   ssgOptions: {
-    script: 'async',
-    formatting: 'minify',
+    script: "async",
+    formatting: "minify",
     crittersOptions: {
       reduceInlineStyles: false,
     },
   },
-})
+});
 ```
 
 For SEO meta/keywords, instruct Cursor to add the useHead header to all Vue.js pages imported from `@unhead/vue`.
 
 ```javascript
 useHead({
-  title: 'The Drapery Lady | Custom Window Treatments & Drapery | San Jose, CA',
+  title: "The Drapery Lady | Custom Window Treatments & Drapery | San Jose, CA",
   meta: [
     {
-      name: 'description',
+      name: "description",
       content:
-        'The Drapery Lady offers custom drapery, blinds, shades, and shutters in San Jose, CA. 35+ years of experience creating elegant window treatments for your home.',
+        "The Drapery Lady offers custom drapery, blinds, shades, and shutters in San Jose, CA. 35+ years of experience creating elegant window treatments for your home.",
     },
     {
-      name: 'keywords',
+      name: "keywords",
       content:
-        'custom drapery, window treatments, blinds, shades, shutters, San Jose, CA, The Drapery Lady, Christine St. Clair',
+        "custom drapery, window treatments, blinds, shades, shutters, San Jose, CA, The Drapery Lady, Christine St. Clair",
     },
     {
-      property: 'og:title',
-      content: 'The Drapery Lady | Custom Window Treatments & Drapery',
+      property: "og:title",
+      content: "The Drapery Lady | Custom Window Treatments & Drapery",
     },
     {
-      property: 'og:description',
+      property: "og:description",
       content:
-        'Custom drapery, blinds, shades, and shutters in San Jose, CA. 35+ years of experience creating elegant window treatments for your home.',
+        "Custom drapery, blinds, shades, and shutters in San Jose, CA. 35+ years of experience creating elegant window treatments for your home.",
     },
     {
-      property: 'og:type',
-      content: 'website',
+      property: "og:type",
+      content: "website",
     },
     {
-      property: 'og:url',
-      content: 'https://draperylady.net',
+      property: "og:url",
+      content: "https://draperylady.net",
     },
     {
-      property: 'og:image',
-      content: 'https://draperylady.net/src/assets/TDL_logo.png',
+      property: "og:image",
+      content: "https://draperylady.net/src/assets/TDL_logo.png",
     },
     {
-      property: 'og:site_name',
-      content: 'The Drapery Lady',
+      property: "og:site_name",
+      content: "The Drapery Lady",
     },
     {
-      name: 'twitter:card',
-      content: 'summary_large_image',
+      name: "twitter:card",
+      content: "summary_large_image",
     },
     {
-      name: 'twitter:title',
-      content: 'The Drapery Lady | Custom Window Treatments',
+      name: "twitter:title",
+      content: "The Drapery Lady | Custom Window Treatments",
     },
     {
-      name: 'twitter:description',
-      content: 'Custom drapery and window treatments in San Jose, CA. 35+ years of experience.',
+      name: "twitter:description",
+      content:
+        "Custom drapery and window treatments in San Jose, CA. 35+ years of experience.",
     },
     {
-      name: 'twitter:image',
-      content: 'https://draperylady.net/src/assets/TDL_logo.png',
+      name: "twitter:image",
+      content: "https://draperylady.net/src/assets/TDL_logo.png",
     },
   ],
   script: [
     {
-      src: 'https://www.googletagmanager.com/gtag/js?id=G-XL29Z0GCWW',
+      src: "https://www.googletagmanager.com/gtag/js?id=G-XL29Z0GCWW",
       async: true,
     },
     {
@@ -273,7 +321,7 @@ useHead({
       `,
     },
   ],
-})
+});
 ```
 
 Test OpenGraph implementation using [OpenGraph.xyz](https://www.opengraph.xyz/).
@@ -282,7 +330,7 @@ Test OpenGraph implementation using [OpenGraph.xyz](https://www.opengraph.xyz/).
 
 ## Backend
 
-For more complex apps that require a backend, we use **Firebase** as it provides a great, cheap BaaS. See the [backend README](../backend/README.md) for init, run, and deploy instructions.
+For more complex apps that require a backend, we use **Firebase** as it provides a great, cheap BaaS. See the [backend README](./backend/README.md) for init, run, and deploy instructions.
 
 ### Initialize
 
@@ -293,18 +341,15 @@ Select which firebase features you need (usually **Functions** & **Firestore**).
 Example: export an HTTP function with CORS so the frontend can call it via `fetch()`:
 
 ```javascript
-const { onRequest } = require('firebase-functions/v2/https')
+const { onRequest } = require("firebase-functions/v2/https");
 
-exports.demo = onRequest(
-  { cors: true },
-  (request, response) => {
-    response.set('Access-Control-Allow-Origin', '*')
-    response.status(200).json({
-      message: 'Hello from Firebase!',
-      timestamp: new Date().toISOString(),
-    })
-  }
-)
+exports.demo = onRequest({ cors: true }, (request, response) => {
+  response.set("Access-Control-Allow-Origin", "*");
+  response.status(200).json({
+    message: "Hello from Firebase!",
+    timestamp: new Date().toISOString(),
+  });
+});
 ```
 
 ## Iteration
@@ -312,9 +357,9 @@ exports.demo = onRequest(
 Cursor is very proficient in JavaScript so writing functions is a breeze. If both frontend and backend are in the Cursor workspace, just instruct it to hook them up and it should do so using the **Fetch API**. Example from a Vue component:
 
 ```javascript
-const functionsUrl = import.meta.env.VITE_FUNCTIONS_URL
-const res = await fetch(functionsUrl)
-const data = await res.json()
+const functionsUrl = import.meta.env.VITE_FUNCTIONS_URL;
+const res = await fetch(functionsUrl);
+const data = await res.json();
 // use data (e.g. message, timestamp)
 ```
 
