@@ -28,7 +28,7 @@ jobs:
 
     steps:
       - name: Mark issue as agent-running
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             await github.rest.issues.addLabels({
@@ -39,7 +39,7 @@ jobs:
             });
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Run OpenAI Codex
         id: codex
@@ -65,7 +65,7 @@ jobs:
 
       - name: Create pull request
         id: cpr
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: patchline/codex-issue-${{ github.event.issue.number }}
@@ -82,7 +82,7 @@ jobs:
 
       - name: Comment if no PR was opened
         if: steps.cpr.outputs.pull-request-number == ''
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             await github.rest.issues.createComment({
@@ -95,7 +95,7 @@ jobs:
 
       - name: On failure, mark blocked and comment
         if: failure() || cancelled()
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             await github.rest.issues.addLabels({
