@@ -2,10 +2,10 @@
 import { useHead } from '@unhead/vue'
 
 useHead({
-  title: 'Stack Demo | Vue, Firebase, FormRelay',
+  title: 'Patchline Demo | Vue, Firebase, FormRelay',
   meta: [
     { name: 'description', content: 'Demo site for the Vue + Firebase + Cloudflare stack.' },
-    { property: 'og:title', content: 'Stack Demo' },
+    { property: 'og:title', content: 'Patchline Demo' },
     { property: 'og:description', content: 'Demo site for the Vue + Firebase + Cloudflare stack.' },
   ],
 })
@@ -13,7 +13,7 @@ useHead({
 
 <template>
   <div class="home">
-    <h1>Stack Demo</h1>
+    <h1>Patchline Demo</h1>
     <p class="lead">
       This site demos the stack: <strong>Vue.js</strong>, <strong>vite-ssg</strong>, <strong>FormRelay</strong>,
       <strong>Firebase</strong> (Functions + Firestore), and responsive layout.
