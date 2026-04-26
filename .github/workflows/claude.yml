@@ -1,17 +1,17 @@
 # Patchline client-site Claude Code workflow.
 #
-# Triggered when a maintainer adds the `approved-for-agent` label to an issue
+# Triggered when a maintainer adds the `approve-for-claude` label to an issue
 # created by patchline-worker. Claude reads the issue body (which already
 # contains the structured request, allowed paths, attachment URLs and hard
 # constraints) and opens a PR.
 #
 # Hard rules enforced here:
-#   - Only fires on the approved-for-agent label.
+#   - Only fires on the approve-for-claude label.
 #   - Only Read/Write/Edit/Glob/Grep tools are allowed (no Bash, no shell).
 #   - Permissions are minimal (issues + pull-requests + contents).
 #   - Status labels (agent-running, pr-opened, blocked) are managed inline.
 
-name: Claude Code (approved-for-agent)
+name: Claude Code (approve-for-claude)
 
 on:
   issues:
@@ -24,7 +24,7 @@ permissions:
 
 jobs:
   claude:
-    if: github.event.label.name == 'approved-for-agent'
+    if: github.event.label.name == 'approve-for-claude'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
