@@ -27,6 +27,8 @@ jobs:
     if: github.event.label.name == 'approved-for-agent'
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     concurrency:
       group: claude-issue-${{ github.event.issue.number }}
       cancel-in-progress: false
@@ -52,10 +54,10 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          allowed_tools: "Read,Write,Edit,Glob,Grep"
+          claude_args: '--allowedTools "Read,Write,Edit,Glob,Grep"'
           # The issue body is the prompt - it includes all constraints,
           # allowed paths, attachment URLs and the structured request.
-          direct_prompt: |
+          prompt: |
             You are implementing a website change request.
 
             Read the GitHub issue below in full. Follow every constraint listed
